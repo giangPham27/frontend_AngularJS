@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Style -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="fontawesome-free-5.15.4-web/css/all.min.css">
+    <!-- Script -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angularjs.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/quizCtrl.js"></script>
+    <title>FPT Polytechnic</title>
+    <style>
+        .spacer {
+            height: 6px;
+            width: 49px;
+            background-color: #23B5E1;
+        }
+
+        .subjects h2 {
+            font-size: 42px;
+            font-weight: 300;
+            line-height: 1.52;
+            margin-top: 24px;
+            margin-bottom: 40px;
+        }
+
+        .subjects-item {
+            margin-bottom: 40px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: stretch;
+            min-height: 200px;
+            position: relative;
+        }
+
+        .subjects-item-image {
+            width: 200px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .subjects-item-text {
+            background-color: #fff;
+            padding: 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .subjects-item-text-main {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-grow: 1;
+        }
+
+        .subjects-item-title-subtext {
+            font-size: 12px;
+            line-height: 18px;
+            opacity: .5;
+            margin-top: 4px;
+        }
+
+
+        .btn-primary-gradient {
+            text-transform: uppercase;
+            padding: 13px 21px;
+            border: none;
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: 1.25px;
+            font-stretch: normal;
+            background: linear-gradient(153deg, #45dbf2, #23B5E1);
+            color: #fff;
+
+        }
+
+        .btn-primary-gradient:hover {
+            color: #fff !important;
+            background: linear-gradient(153deg, #007bff, #45dbf2);
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <div class="container">
+        <header class="row">
+            <img class="col-12 p-0" src="images/banner.png">
+        </header>
+        <nav class="row">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid p-0">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link " href="#/!"><i class="fas fa-home"></i> Trang chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="#!gioithieu"><i class="fas fa-list-alt"></i> Giới
+                                    thiệu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#!lienhe"><i class="fas fa-phone"></i>Liên hệ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#!gopy"><i class="fas fa-mail"></i>Góp ý</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#!hoidap"><i class="fas fa-question"></i>Hỏi đáp</a>
+                            </li>
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-book"></i>
+                                        Môn học
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                        <li><a class="dropdown-item" href="#!danhmucmonhoc">Danh sách môn học</a></li>
+                                        <li><a class="dropdown-item" href="#!subjects">Thi quiz</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user"></i>
+                                    Tài khoản
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#!dangnhap">Đăng nhập</a></li>
+                                    <li><a class="dropdown-item" href="#!dangky">Đăng Ký</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                                    <li><a class="dropdown-item" href="#">Đổi mật khẩu</a></li>
+                                    <li><a class="dropdown-item" href="#!capnhattaikhoan">Cập nhật tài khoản</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </nav>
+        <aside>
+            <div ng-view></div>
+        </aside>
+        <footer class="row text-center">
+            <div class="card col p-0">
+                <div class="card-body bg-primary align-middle">
+                    <p style="color: white;">FPT Polytechnic &copy; 2022.
+                        All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<section class="row">
+    <aside class="col-9" ng-controller="subjectCtrl">
+        <div class="row">
+            <div class="col-sm-4 mt-3" ng-repeat="sub in list_subject">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="images/logos/{{sub.Logo}}" alt="">
+                    </div>
+                    <div class="card-footer text-center">
+                        <a class="btn btn-primary-gradient" href="#!qlQuiz" role="button">Chỉnh sửa</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <aside class="col-3 p-0">
+        <div class="card mt-3">
+            <div class="card-header p-2" data-bs-toggle="collapse" data-bs-target="#danh_muc">
+                <i class="fas fa-th-list"> DANH MỤC</i>
+            </div>
+            <div class="card-body p-0 collapse" id="danh_muc" ng-controller="subjectCtrl">
+                <div ng-repeat="sub in list_subject">
+                    <a href="#!danhmucmonhoc" class="list-group-item">{{ sub.Name }}</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+</section>

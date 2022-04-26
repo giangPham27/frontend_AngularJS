@@ -1,0 +1,57 @@
+<section class="row">
+    <aside class="col-9">
+        <div class="card mt-3">
+            <div class="card-header p-2">
+                <i class="fas fa-th-list"> Hỏi đáp nhỏ</i>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-11">1. Bạn nghĩ gì về trường cao đẳng FPT Polytechnic ?</div>
+                    <div class="col-md-1"> <span class="badge bg-info">0:6</span></div>
+                </div>
+                <hr class="m-3">
+                <!-- click radio button -->
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Gần tết mà deatline nhiều sinh viên chạy ốm
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Đội ngũ giáo viên dày dặn kinh nghiệm
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                    <label class="form-check-label" for="flexRadioDefault3">
+                        Trường đào tạo rất tâm huyết , dễ hiểu , dễ nhớ
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                    <label class="form-check-label" for="flexRadioDefault4">
+                        Cơ sỡ hạ tầng được trang bị hiện đại
+                    </label>
+                </div>
+
+            </div>
+            <div class="card-footer p-3">
+                MARKS: 0/80
+            </div>
+        </div>
+    </aside>
+    <aside class="col-3 p-0">
+        <div class="card mt-3">
+            <div class="card-header p-2" data-bs-toggle="collapse" data-bs-target="#danh_muc">
+                <i class="fas fa-th-list"> DANH MỤC</i>
+            </div>
+            <div class="card-body p-0 collapse" id="danh_muc" ng-controller="subjectCtrl">
+                <div ng-repeat="sub in list_subject">
+                    <a href="#!danhmucmonhoc" class="list-group-item">{{ sub.Name }}</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+</section>

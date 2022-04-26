@@ -1,0 +1,127 @@
+<section class="row" ng-controller="studentCtrl">
+<div ng-show="isLoading" class="loading">
+    <div class="spinner-border text-primary spinner-center" role="status">
+    </div>
+</div>
+    <div class="alert {{ isSuccess == true ? 'alert-success' : 'alert-danger' }}"
+        ng-show="message.length != 0">
+        {{ message }}
+    </div>
+    <form name="form_student" ng-submit="onSubmitForm($event)">
+        <div class="mt-2 row">
+            <label class="col-2" for="username">Tên đăng nhập</label>
+            <div class="col-10">
+                <input ng-model-options="{ updateOn: 'default', debounce: 1000 }"
+                    ng-model="student.username" class="form-control" type="text" name="username"
+                    id="username" required autocomplete="off" />
+                <small ng-hide="form_student.username.$untouched || form_student.username.$valid"
+                    class="text-danger">
+                    Không được để trống
+                </small>
+            </div>
+        </div>
+        <div class="mt-2 row">
+            <label class="col-2" for="password">Password</label>
+            <div class="col-10">
+                <input ng-model-options="{ updateOn: 'default', debounce: 1000 }"
+                    ng-model="student.password" class="form-control" type="text" name="password"
+                    id="password" required autocomplete="off" />
+                <small ng-hide="form_student.password.$untouched || form_student.password.$valid"
+                    class="text-danger">
+                    Không được để trống
+                </small>
+            </div>
+        </div>
+        <div class="mt-2 row">
+            <label class="col-2" for="fullname">Họ và tên</label>
+            <div class="col-10">
+                <input ng-model-options="{ updateOn: 'default', debounce: 1000 }"
+                    ng-model="student.fullname" class="form-control" type="text" name="fullname"
+                    id="fullname" required autocomplete="off" />
+                <small ng-hide="form_student.fullname.$untouched || form_student.fullname.$valid"
+                    class="text-danger">
+                    Không được để trống
+                </small>
+            </div>
+        </div>
+        <div class="mt-2 row">
+            <label class="col-2" for="email">Email</label>
+            <div class="col-10">
+                <div class="input-group">
+                    <input ng-model="student.email" class="form-control" type="email" name="email"
+                        id="email" autocomplete="off" required />
+                </div>
+                <div ng-hide="form_student.email.$untouched || form_student.email.$valid"
+                    class="text-danger">
+                    <small ng-show="form_student.email.$error.required">
+                        Không được để trống
+                    </small>
+                    <small ng-show="form_student.email.$error.email">
+                        Không đúng định dạng email
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="mt-2 row">
+            <label class="col-2" for="gender">Giới tính</label>
+            <div class="col-10 row">
+                <div class="col-2">
+                    <input type="radio" ng-model="student.gender" value="true"
+                        ng-checked="student.gender == true" name="gender" id="gt_nam" />
+                    <label for="gt_nam">Nam</label>
+                </div>
+                <div class="col-2">
+                    <input type="radio" ng-model="student.gender" value="false"
+                        ng-checked="student.gender != true" name="gender" id="gt_nu" />
+                    <label for="gt_nu">Nữ</label>
+                </div>
+            </div>
+        </div>
+        <div class="mt-2 row">
+            <label class="col-2" for="birthday">Ngày sinh</label>
+            <div class="col-10">
+                <input ng-model-options="{ updateOn: 'default', debounce: 1000 }"
+                    ng-model="student.birthday" class="form-control" type="text" name="birthday"
+                    id="birthday" required autocomplete="off" />
+                <small ng-hide="form_student.birthday.$untouched || form_student.birthday.$valid"
+                    class="text-danger">
+                    Không được để trống
+                </small>
+            </div>
+        </div>
+        <div class="mt-2 row">
+            <label class="col-2" for="schoolfee">Học phí</label>
+            <div class="col-10">
+                <input ng-model-options="{ updateOn: 'default', debounce: 1000 }"
+                    ng-model="student.schoolfee" class="form-control" type="text" name="schoolfee"
+                    id="schoolfee" required autocomplete="off" />
+                <small ng-hide="form_student.schoolfee.$untouched || form_student.schoolfee.$valid"
+                    class="text-danger">
+                    Không được để trống
+                </small>
+            </div>
+        </div>
+        <div class="mt-2 row">
+            <label class="col-2" for="marks">Điểm</label>
+            <div class="col-10">
+                <input ng-model-options="{ updateOn: 'default', debounce: 1000 }" ng-model="student.marks"
+                    class="form-control" type="text" name="marks" id="marks" required
+                    autocomplete="off" />
+                <small ng-hide="form_student.marks.$untouched || form_student.marks.$valid"
+                    class="text-danger">
+                    Không được để trống
+                </small>
+            </div>
+        </div>
+        <div class="mt-2 row">
+            <div class="form-group mt-3">
+                <button class="btn btn-primary">
+                    <i class="fas fa-save"></i>Lưu
+                </button>
+                <button type="reset" class="btn btn-warning">
+                    <i class="fas fa-broom"></i>Xóa form
+                </button>
+            </div>
+        </div>
+    </form>
+</section>
